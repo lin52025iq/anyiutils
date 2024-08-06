@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "baseUrl": "./",
+        "rootDir": "./",
+        "lib": ["ESNext", "DOM"],
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "dist",
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules"]
+}
