@@ -1,4 +1,4 @@
-/** 字符串排序 */
+/** 字符比较 */
 export function strComparator(a: string, b: string) {
     a = a.toString()
     b = b.toString()
