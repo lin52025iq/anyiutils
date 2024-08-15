@@ -3,7 +3,7 @@ import { isArray, isPlainObject } from './isPlainObject'
 /**
  * 深拷贝原始对象和数组
  */
-export function deepClone<T = Record<string, unknown> | []>(source: T): T {
+export function deepClone<T = Record<string, any> | []>(source: T): T {
     if (!isPlainObject(source) && !isArray(source)) {
         return source
     }

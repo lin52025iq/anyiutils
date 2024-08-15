@@ -8,7 +8,7 @@ import { isPlainObject } from './isPlainObject'
  * @param targetObjs 被合并的对象
  * @return 返回 sourceObj
  */
-export function mergeObjects(sourceObj: Record<string, unknown>, ...targetObjs: Record<string, unknown>[]) {
+export function mergeObjects(sourceObj: Record<string, any>, ...targetObjs: Record<string, any>[]) {
     const plainObjs = targetObjs.filter((item) => isPlainObject(item))
 
     plainObjs.forEach((targetObj) => {
