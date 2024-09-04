@@ -21,8 +21,9 @@ interface ICallRetryParams {
 
     /**
      * 是否需要重试
+     * @param count 当前重试次数
      */
-    needRetry?: () => boolean
+    needRetry?: (count: number) => boolean
 
     /**
      * 每次执行 fn 后的回调函数
@@ -38,15 +39,7 @@ interface ICallRetryParams {
 /**
  * 重试函数
  */
-export function callRetry({
-    fn,
-    times = 3,
-    delay = 1000,
-    onend = () => {},
-    needRetry = () => true,
-    onfnend,
-    onfnerror
-}: ICallRetryParams) {
+export function callRetry({ fn, times = 3, delay = 1000, onend, needRetry, onfnend, onfnerror }: ICallRetryParams) {
     let count = 0
     return new Promise<void>((resolve) => {
         const retry = async () => {
@@ -66,8 +59,8 @@ export function callRetry({
                 }
             }
 
-            const isRetry = typeof needRetry === 'function' ? needRetry() : true
-            if (count < times && isRetry) {
+            const isRetry = typeof needRetry === 'function' ? needRetry(count) : count < times
+            if (isRetry) {
                 await sleep(typeof delay === 'function' ? delay(count) : delay)
                 retry()
             } else {
