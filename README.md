@@ -49,3 +49,12 @@ callRetry({
     }
 })
 ```
+
+13. createCircleBase64: 创建环形进度条 base64 编码
+
+```ts
+import { createCircleBase64 } from 'anyiutils'
+const img = document.createElement('img')
+img.src = createCircleBase64({ progress: 50 })
+document.body.appendChild(img)
+```
