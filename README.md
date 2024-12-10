@@ -58,3 +58,60 @@ const img = document.createElement('img')
 img.src = createCircleBase64({ progress: 50 })
 document.body.appendChild(img)
 ```
+
+14. animateNumber: 数字动画
+
+```ts
+import { animateNumber } from 'anyiutils'
+
+animateNumber({ start: 0, end: 5, callback: console.log })
+// 1
+// 2
+// 3
+// 4
+// 5 true
+```
+
+15. NumberContorl 可控数字动画
+
+```ts
+import { NumberContorl } from 'anyiutils'
+const nc = new NumberContorl(0)
+nc.on('update', (val, isEnd) => {
+    console.log(val, isEnd)
+
+    if (val >= 5) {
+        nc.seek(0)
+    }
+})
+nc.seek(10)
+
+// 1 undefined
+// 2 undefined
+// 3 undefined
+// 4 undefined
+// 5 undefined
+// 4 undefined
+// 3 undefined
+// 2 undefined
+// 1 undefined
+// 0 true
+```
+
+```ts
+// 结合 NumberContorl 和 createCircleBase64 实现可控制进度与动画的环形进度条
+import { NumberContorl, createCircleBase64 } from 'anyiutils'
+const img = document.createElement('img')
+img.src = createCircleBase64({ progress: 0 })
+document.body.appendChild(img)
+
+const nc = new NumberContorl(0, { digits: 0 })
+nc.on('update', (val) => {
+    img.src = createCircleBase64({ progress: val })
+})
+
+// 设置进度
+nc.seek(10)
+nc.seek(100)
+nc.seek(0)
+```

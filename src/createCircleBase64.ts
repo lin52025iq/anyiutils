@@ -11,7 +11,7 @@ interface ProgressProps {
     fill: string
     /** 进度条端点样式 @default 'round' */
     strokeLinecap: 'butt' | 'round' | 'square'
-    /** 动画速度（也可以任务是进度条完结时间）
+    /** 动画速度（也可以认为是进度条完结时间）
      * 注意：这个属性不支持动态修改 progress @default 0 */
     defaultDurTime: number
 }
@@ -152,5 +152,5 @@ export function createBase64Svg(str: string) {
  * ```
  */
 export function createCircleBase64(props?: Partial<ProgressProps>) {
-    return createBase64Svg(createSvgStr(props)(props?.progress || 10))
+    return createBase64Svg(createSvgStr(props)(props?.progress ?? 10))
 }
