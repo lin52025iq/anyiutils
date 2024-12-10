@@ -41,7 +41,8 @@ async function createPackageAndUpdateVersion() {
         'keywords',
         'author',
         'license',
-        'dependencies'
+        'dependencies',
+        'homepage'
     ]
     await new Promise<void>((resolve, reject) => {
         import('../package.json')

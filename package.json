@@ -1,6 +1,6 @@
 {
     "name": "anyiutils",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "any i utils",
     "private": true,
     "type": "module",
@@ -26,6 +26,7 @@
     ],
     "author": "lin_52025",
     "license": "ISC",
+    "homepage": "https://github.com/lin52025iq/anyiutils",
     "devDependencies": {
         "@types/node": "^22.0.3",
         "@types/semver": "^7.5.8",
